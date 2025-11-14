@@ -85,7 +85,7 @@ xssfilter -t svg -e onload
 xssfilter -t img -e onerror --encode url -l 5
 ```
 
-### Combine and exclude tags
+### Combine and exclude elements
 
 ```bash
 xssfilter -t button -t div --exclude-event onclick
