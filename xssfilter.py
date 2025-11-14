@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-XSSfilter - Quick XSS payload filter
+XSS Payload Generator
 Author: fineko
 """
 
@@ -159,16 +159,16 @@ def show_stats(payloads):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='xssfilter',
-        description='XSSfilter - XSS payload filter',
+        prog='xssgen',
+        description='XSS Payload Generator',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 examples:
-  xssfilter -t svg -e onload
-  xssfilter -t img -e onerror --encode url
-  xssfilter -t button -t xmp -l 10
-  xssfilter --stats
-  xssfilter -t svg --raw
+  xssgen -t svg -e onload
+  xssgen -t img -e onerror --encode url
+  xssgen -t button -t xmp -l 10
+  xssgen --stats
+  xssgen -t svg --raw
         """,
         add_help=False
     )
@@ -176,8 +176,8 @@ examples:
     # Main options
     main_group = parser.add_argument_group('Main options')
     main_group.add_argument('-h', '--help', action='help', help='show this help')
-    main_group.add_argument('-t', '--tag', action='append', metavar='TAG', help='filter by tag)')
-    main_group.add_argument('-e', '--event', action='append', metavar='EVENT', help='filter by event')
+    main_group.add_argument('-t', '--tag', action='append', metavar='TAG', help='retrieve by tag)')
+    main_group.add_argument('-e', '--event', action='append', metavar='EVENT', help='retrieve by event')
     main_group.add_argument('-l', '--limit', type=int, metavar='N', help='limit results')
     main_group.add_argument('-o', '--output', metavar='FILE', help='output file')
     

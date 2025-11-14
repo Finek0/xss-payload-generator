@@ -1,14 +1,14 @@
-# XSSfilter
+# XSS Payload Generator
 
-CLI XSS payload retriever. Retrieve XSS payloads by filtering tags and events. 
+CLI XSS payload generator. Retrieve XSS payloads by tags and events. Can add encoding on top.
 
-Uses PortSwigger's 10k+ XSS payloads as a default source (a custom payload list can be provided).
+Use PortSwigger's 10k+ XSS payloads as a default source (a custom payload list can be provided).
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/fineko/xss-filter.git
-cd xss-filter
+git clone https://github.com/fineko/xss-payload-generator.git
+cd xss-payload-generator
 ```
 
 ## Installation
@@ -16,7 +16,7 @@ cd xss-filter
 ### Option 1: Run directly (no installation)
 
 ```bash
-./xssfilter.py -t svg -e onload
+./xssgen.py -t svg -e onload
 ```
 
 ### Option 2: Install globally
@@ -28,39 +28,39 @@ cd xss-filter
 Then use from anywhere:
 
 ```bash
-xssfilter -t svg -e onload
+xssgen -t svg -e onload
 ```
 
 ### Uninstall
 
 ```bash
-sudo rm /usr/local/bin/xssfilter
-sudo rm -r /usr/share/xssfilter
+sudo rm /usr/local/bin/xssgen
+sudo rm -r /usr/share/xssgen
 ```
 
 ## Usage
 
 ```bash
-# Filter by tag
-xssfilter -t svg
+# Generate by tag
+xssgen -t svg
 
-# Filter by tag AND event
-xssfilter -t svg -e onload
+# Generate by tag AND event
+xssgen -t svg -e onload
 
 # Multiple tags together
-xssfilter -t button -t xmp -l 10
+xssgen -t button -t xmp -l 10
 
 # Encode output
-xssfilter -t img -e onerror --encode url
+xssgen -t img -e onerror --encode url
 
 # Raw output (for piping)
-xssfilter -t svg --raw
+xssgen -t svg --raw
 
 # Show statistics
-xssfilter --stats
+xssgen --stats
 
 # Save to file
-xssfilter -t iframe -o payloads.txt
+xssgen -t iframe -o payloads.txt
 ```
 
 ## Note
@@ -68,7 +68,7 @@ xssfilter -t iframe -o payloads.txt
 **Custom tags:** In PortSwigger's payload list, custom HTML tags are named `xss`. To find payloads with custom tags, use:
 
 ```bash
-xssfilter -t xss
+xssgen -t xss
 ```
 
 ## Examples
@@ -76,30 +76,30 @@ xssfilter -t xss
 ### Find SVG tag with onload event
 
 ```bash
-xssfilter -t svg -e onload
+xssgen -t svg -e onload
 ```
 
 ### URL-encode payloads
 
 ```bash
-xssfilter -t img -e onerror --encode url -l 5
+xssgen -t img -e onerror --encode url -l 5
 ```
 
 ### Combine and exclude elements
 
 ```bash
-xssfilter -t button -t div --exclude-event onclick
+xssgen -t button -t div --exclude-event onclick
 ```
 
 ### Pipe to other tools
 
 ```bash
-xssfilter -t svg --raw | ffuf -w - -u https://target.com/?q=FUZZ
+xssgen -t svg --raw | ffuf -w - -u https://target.com/?q=FUZZ
 ```
 
 ## Features
 
-- Filter by tags & events (AND logic)
+- Generate by tags & events (AND logic)
 - Syntax highlighting
 - Multiple encodings (URL, base64, hex, HTML)
 - Payload statistics
