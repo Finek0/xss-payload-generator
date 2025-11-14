@@ -5,8 +5,8 @@ Quick XSS payload filter. Filter PortSwigger's 10k+ XSS payloads (or any XSS pay
 ## Quick Start
 
 ```bash
-git clone https://github.com/fineko/xssfilter.git
-cd xssfilter
+git clone https://github.com/fineko/xss-filter.git
+cd xss-filter
 ```
 
 ## Installation
