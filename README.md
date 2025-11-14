@@ -1,6 +1,8 @@
 # XSSfilter
 
-Quick XSS payload filter. Filter PortSwigger's 10k+ XSS payloads (or any XSS payload list) by tags and events.
+CLI XSS payload retriever. Retrieve XSS payloads by filtering tags and events. 
+
+Uses PortSwigger's 10k+ XSS payloads as a default source (a custom payload list can be provided).
 
 ## Quick Start
 
